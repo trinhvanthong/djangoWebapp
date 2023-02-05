@@ -1,0 +1,43 @@
+{% extends "main-layout.html" %}
+{% block title%}Register {% endblock %}
+{% block body %}
+<link rel="stylesheet" href="../../static/css/login.css">
+<div class="container-sm ">
+    <br>
+    <div class="contents">
+        <h1> Sign up</h1>
+    <form class="login-form" action=""method="post">
+        {% csrf_token %}
+        <div class="mb-3 row align-items-start ">
+          <div class="col">
+            <input type="text" class="form-control"  placeholder="first name" name="firstname">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control"  placeholder="last name" name="lastname">
+          </div>
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control"  placeholder="name@example.com" name="email">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control"  placeholder="username" name="username">
+        </div>
+        <div class="mb-3">
+          <input type="password" class="form-control"  placeholder="password" name="password">
+        </div>
+        <div class="mb-3">
+          <input type="password" class="form-control"  placeholder="retype password" name="repassword">
+        </div>
+          <div class="form-text">
+            {% if messages %}
+                {% for message in messages %}
+                 <p style="color:var(--error)">{{message}} </p>
+                {% endfor %}
+            {% endif %}
+          </div>
+        <button type="submit" class=" btn btn-dark login-button">Sign Up</button>
+        <a class="nav-link"style="color:var(--button)" href="{% url 'login'%}">Login now</a>
+      </form>
+    </div>
+</div>
+{% endblock %}

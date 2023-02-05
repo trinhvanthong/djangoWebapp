@@ -1,0 +1,36 @@
+{% extends "main-layout.html" %}
+{% block title%}Artist {% endblock %}
+{% block body %}
+<h1>This is artist page</h1>
+<table>
+    <tr>
+        <th> name</th>
+        <th>bio</th>
+        <th>works</th>
+    </tr>
+    {% for artist in artists %}
+    <tr>
+        <td>{{ artist.user.first_name }} {{ artist.user.last_name }}</td>
+        <td>{{ artist.id }}</td>
+        <td><a class="nav-link" href="{% url 'painting' artist.id %}">works</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<div class="pagination">
+    <span class="step-links">
+        {% if artists.has_previous %}
+            <a href="?page={{ artists.previous_page_number }}">Previous</a>
+        {% endif %}
+    </span>
+ 
+    <span class="current">
+        Page {{ artists.number }} of {{ artists.paginator.num_pages }}.
+    </span>
+     
+    <span>
+        {% if artists.has_next %}
+            <a href="?page={{ customers.next_page_number }}">Next</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

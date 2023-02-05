@@ -1,0 +1,33 @@
+.contents{
+    justify-content: center;
+    text-align: center;
+    margin:auto;
+    max-width: 40%;
+    min-width: 500px;
+    padding: 25px;
+    background-color: var(--white);
+    border-radius: 15px;
+    top: 20vh;
+}
+.contents h1{
+    text-align: center;
+}
+input{
+    font-size: 26px;
+    text-align: center;
+}
+.login-form button{
+     margin: auto;
+     background-color:  var(--button);
+     min-width: 200px;
+     border: none;
+     font-size: large;
+     font-weight: 500;
+}
+body{
+    background-image: url("../imgs/images/background1.jpg");
+    background-repeat: no-repeat;
+    background-size: auto auto;
+
+}
+

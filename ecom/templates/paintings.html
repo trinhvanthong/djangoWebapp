@@ -1,0 +1,34 @@
+{% extends "main-layout.html" %}
+{% block title%}painting {% endblock %}
+{% block body %}
+{% if artist != 'all' %}
+    <h1>This is paintings of {{artist.user.first_name}}</h1>
+{% endif %} 
+<table>
+    {% for painting in paintings %}
+    <div class="row align-items-start">
+        <div class="col">
+          {{painting.name}} 
+          {{painting.price}} 
+          {{painting.author_id.first_name}} 
+        </div>
+    {% endfor %}
+</table>
+<div class="pagination">
+    <span class="step-links">
+        {% if paintings.has_previous %}
+            <a href="?page={{ paintings.previous_page_number }}">Previous</a>
+        {% endif %}
+    </span>
+ 
+    <span class="current">
+        Page {{ paintings.number }} of {{ paintings.paginator.num_pages }}.
+    </span>
+     
+    <span>
+        {% if paintings.has_next %}
+            <a href="?page={{ paintings.next_page_number }}">Next</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}
